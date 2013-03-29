@@ -1,0 +1,7 @@
+parameters:
+#    jason_users.example.class: Jason\UsersBundle\Example
+
+services:
+#    jason_users.example:
+#        class: %jason_users.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
