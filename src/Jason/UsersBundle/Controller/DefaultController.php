@@ -3,6 +3,8 @@
 namespace Jason\UsersBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Jason\UsersBundle\Entity\Users;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -28,9 +30,17 @@ class DefaultController extends Controller
 		return $this->render('JasonUsersBundle:Default:getall.html.twig');
 	}
 	
-	public function getbynameAction()
+	public function getbynameAction(Request $request)
 	{
-		return $this->render('JasonUsersBundle:Default:getbyname.html.twig');
+		$users = new Users();
+		
+		$form = $this->createFormBuilder($users)
+					 ->add('name', 'text')
+					 ->getForm();
+					 
+		return $this->render('JasonUsersBundle:Default:getbyname.html.twig',
+							array('form' => $form->createView())
+		);
 	}
 	
 	public function getuserdetailAction($id)

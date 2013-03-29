@@ -46,3 +46,8 @@ h1 {
    list-style-type: none;
    font-size: .8em; 
 }
+
+.submit {
+	float: left;
+	margin-top: 20px;
+}
