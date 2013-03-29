@@ -1,3 +1,19 @@
 jason_users_homepage:
-    pattern:  /hello/{name}
+    pattern:  /users
     defaults: { _controller: JasonUsersBundle:Default:index }
+    
+jason_users_getall:
+    pattern:  /users/getall
+    defaults: { _controller: JasonUsersBundle:Default:getall }
+    
+jason_users_getbyname:
+    pattern:  /users/getbyname
+    defaults: { _controller: JasonUsersBundle:Default:getbyname }
+    
+jason_users_userdetail:
+    pattern:  /users/user/{id}
+    defaults: { _controller: JasonUsersBundle:Default:getuserdetail }
+    
+jason_users_getbylocale:
+    pattern:  /users/getbylocale
+    defaults: { _controller: JasonUsersBundle:Default:getbylocale }
