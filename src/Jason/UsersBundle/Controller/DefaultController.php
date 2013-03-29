@@ -26,7 +26,7 @@ class DefaultController extends Controller
 		return $this->render('JasonUsersBundle:Default:getuserdetail.html.twig');
 	}
 	
-	public function getbylocale()
+	public function getbylocaleAction()
 	{
 		return $this->render('JasonUsersBundle:Default:getbylocale.html.twig');
 	}

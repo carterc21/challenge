@@ -1,1 +1,13 @@
-home
+{% extends '::base.html.twig' %}
+
+{% block title %}Users Home{% endblock %}
+
+
+{% block body %}
+<h1>Home Page</h1>
+<div class="fullWidth">
+<a href="{{ path('jason_users_getall') }}">&rsaquo; Get All Users</a><br>
+<a href="{{ path('jason_users_getbylocale') }}">&rsaquo; Get Users From A and I states</a><br>
+<a href="{{ path('jason_users_getbyname') }}">&rsaquo; Get User by Name (Autocomplete Widget)</a>
+</div>
+{% endblock %}
