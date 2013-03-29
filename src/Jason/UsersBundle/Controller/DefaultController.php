@@ -49,12 +49,26 @@ class DefaultController extends Controller
 								array('error' => 'No matching users found.')
 			);
 		}
-		
-		
 	}
 	
 	public function getbylocaleAction()
 	{
-		return $this->render('JasonUsersBundle:Default:getbylocale.html.twig');
+		$repo = $this->getDoctrine()
+					 ->getRepository('JasonUsersBundle:Users');
+	 	
+		$q = $repo->createQueryBuilder('l')
+				  ->where('l.state LIKE :a')
+				  ->setParameter('a', 'A%')
+				  ->orwhere('l.state LIKE :i')
+				  ->setParameter('i', 'I%')
+				  ->orderBy('l.name', 'DESC')
+				  ->setMaxResults(7)
+				  ->getQuery();
+				  
+	  	$locales = $q->getResult();	
+		
+		return $this->render('JasonUsersBundle:Default:getbylocale.html.twig',
+							array('locales' => $locales)
+		);
 	}
 }

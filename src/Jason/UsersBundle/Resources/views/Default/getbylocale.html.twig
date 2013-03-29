@@ -1,1 +1,16 @@
-home
+{% extends '::base.html.twig' %}
+
+{% block title %}Get Users Locales{% endblock %}
+
+{% block body %}
+	<h1>A and I State Users</h1>
+	<p>Users from states that begin with either A or I, ordered by Name, descending, limited to first 7 results. Not sure why this is useful, but hopefully the query is sufficiently complex. Click on a user to see detail.</p>
+	
+	{% for user in locales %}
+        <li>
+        	<a href="{{ path('jason_users_userdetail', {'id': user.id}) }}">{{ user.name }}</a><br>
+        	<li class="nested">{{ user.state }} : {{ user.city }}</li>
+    	</li>
+    {% endfor %}
+
+{% endblock %}
