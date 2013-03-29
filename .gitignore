@@ -5,3 +5,5 @@
 /build/
 /vendor/
 /composer.phar
+.project
+.settings
