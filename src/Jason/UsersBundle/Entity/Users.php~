@@ -1,0 +1,18 @@
+<?php
+
+namespace Jason\UsersBundle\Entity;
+
+class Users
+{
+	protected $id;
+	
+	protected $name;
+	
+	protected $email;
+	
+	protected $city;
+	
+	protected $state;
+	
+	protected $phone;
+}

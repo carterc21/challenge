@@ -1,0 +1,23 @@
+Jason\UsersBundle\Entity\Users:
+  type: entity
+  table: users
+  id:
+    id:
+      type: bigint
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 255
+    email:
+      type: string
+      length: 255
+    city:
+      type: string
+      length: 50
+    state:
+      type: string
+      length: 50
+    phone:
+      type: string
+      length: 100
