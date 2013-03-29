@@ -33,9 +33,24 @@ class DefaultController extends Controller
 		return $this->render('JasonUsersBundle:Default:getbyname.html.twig');
 	}
 	
-	public function getuserdetail($id)
+	public function getuserdetailAction($id)
 	{
-		return $this->render('JasonUsersBundle:Default:getuserdetail.html.twig');
+		$repo = $this->getDoctrine()
+					 ->getRepository('JasonUsersBundle:Users');
+					 
+	 	$user = $repo->findOneById($id);
+		
+		if (count($user) == 1) {
+			return $this->render('JasonUsersBundle:Default:getuserdetail.html.twig',
+								array('user' => $user)
+			);
+		} else {
+			return $this->render('JasonUsersBundle:Default:getuserdetail.html.twig',
+								array('error' => 'No matching users found.')
+			);
+		}
+		
+		
 	}
 	
 	public function getbylocaleAction()

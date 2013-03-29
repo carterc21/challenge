@@ -1,1 +1,21 @@
-home
+{% extends '::base.html.twig' %}
+
+{% block title %}User Detail{% endblock %}
+
+{% block body %}
+	{% if user is defined %}
+	<h1>User Detail for {{ user.name }}</h1>
+	<ul>
+		<li>ID: {{ user.id }}</li>
+		<li>NAME: {{ user.name }}</li>
+		<li>E-MAIL: {{ user.email }}</li>
+		<li>CITY: {{ user.city }}</li>
+		<li>STATE: {{ user.state }}</li>
+		<li>PHONE: {{ user.phone }}</li>
+	</ul>
+	{% endif %}
+	{% if error is defined %}
+	<h1>{{ error }}</h1>
+	{% endif %}
+	<a href="{{ path('jason_users_getall') }}">&lsaquo; Back to All Users</a>
+{% endblock %}
