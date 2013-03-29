@@ -13,6 +13,18 @@ class DefaultController extends Controller
 	
 	public function getallAction()
 	{
+		$repo = $this->getDoctrine()
+                      ->getRepository('JasonUsersBundle:Users');
+        $q = $repo->createQueryBuilder('u')
+                  ->orderBy('u.name')
+                  ->getQuery();
+        $users = $q->getResult();
+        
+        
+    	return $this->render('JasonUsersBundle:Default:getall.html.twig',
+                            array('users' => $users)
+        );
+		
 		return $this->render('JasonUsersBundle:Default:getall.html.twig');
 	}
 	

@@ -1,1 +1,12 @@
-home
+{% extends '::base.html.twig' %}
+
+{% block title %}Get All Users{% endblock %}
+
+{% block body %}
+	<h1>All Users, Alpha by Name</h1>
+	<p>Click user for details</p>
+	{% for user in users %}
+        <li><a href="{{ path('jason_users_userdetail', {'id': user.id}) }}">{{ user.name }}</a></li>
+    {% endfor %}
+
+{% endblock %}
